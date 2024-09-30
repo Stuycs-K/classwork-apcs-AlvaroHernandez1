@@ -5,9 +5,17 @@ public class ArrayMethods{
   public static void main(String[] args) {
     int[][] test = {{0, 1, 8 ,9}, {0, 0, 9}, {}};
     System.out.println(arrToString(test));
+    System.out.println(arr2DSum(test));
 
     test = new int[][] {{},{},{}};
     System.out.println(arrToString(test));
+    System.out.println(arr2DSum(test));
+
+    test = new int[][] {{-10, -2, -10},{22},{-17, 1}};
+    System.out.println(arrToString(test));
+    System.out.println(arr2DSum(test));
+
+
   }
 
   public static String arrToString(int[] nums){
@@ -44,5 +52,9 @@ public class ArrayMethods{
     }
 
     return total;
+  }
+
+  public static int[][] swapRC (int [][] nums) {
+    
   }
 }
