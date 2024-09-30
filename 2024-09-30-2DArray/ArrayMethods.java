@@ -3,6 +3,7 @@ public class ArrayMethods{
 // Sandra Gao sandrag44@nycstudents.net
 
   public static void main(String[] args) {
+    // Tests both arrToString and arr2DSum
     int[][] test = {{0, 1, 8 ,9}, {0, 0, 9}, {}};
     System.out.println(arrToString(test));
     System.out.println(arr2DSum(test));
@@ -15,7 +16,11 @@ public class ArrayMethods{
     System.out.println(arrToString(test));
     System.out.println(arr2DSum(test));
 
-
+    // Tests swapRC
+    test = new int[][] {{1, 2},{1, 2},{5, 6}};
+    System.out.println(arrToString(swapRC(test)));
+    test = new int[][] {{1, -2},{-1, 2},{3, 11}};
+    System.out.println(arrToString(swapRC(test)));
   }
 
   public static String arrToString(int[] nums){
@@ -55,6 +60,14 @@ public class ArrayMethods{
   }
 
   public static int[][] swapRC (int [][] nums) {
-    
+    int[][] column = new int[nums[0].length][nums.length];
+    for (int n = 0; n < nums[n].length; n++)
+    {
+      for (int i = 0; i < nums.length; i++)
+      {
+        column[n][i] = nums[i][n]; 
+      }
+    }
+    return column;
   }
 }
