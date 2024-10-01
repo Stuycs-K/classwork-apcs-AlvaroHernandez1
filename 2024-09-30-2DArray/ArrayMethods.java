@@ -5,22 +5,22 @@ public class ArrayMethods{
   public static void main(String[] args) {
     // Tests both arrToString and arr2DSum
     int[][] test = {{0, 1, 8 ,9}, {0, 0, 9}, {}};
-    System.out.println(arrToString(test));
-    System.out.println(arr2DSum(test));
+    System.out.println("Expected: [[0, 1, 8, 9], [0, 0, 9], []], Received: " + arrToString(test));
+    System.out.println("Expected: 27, Received: " + arr2DSum(test));
 
     test = new int[][] {{},{},{}};
-    System.out.println(arrToString(test));
-    System.out.println(arr2DSum(test));
+    System.out.println("Expected: [[], [], []], Received: " + arrToString(test));
+    System.out.println("Expected: 0, Received: " + arr2DSum(test));
 
     test = new int[][] {{-10, -2, -10},{22},{-17, 1}};
-    System.out.println(arrToString(test));
-    System.out.println(arr2DSum(test));
+    System.out.println("Expected: [[-10, -2, -10], [22], [-17, 1]], Received: " + arrToString(test));
+    System.out.println("Expected: -16, Received: " + arr2DSum(test));
 
     // Tests swapRC
     test = new int[][] {{1, 2},{1, 2},{5, 6}};
-    System.out.println(arrToString(swapRC(test)));
+    System.out.println("Expected: [[1, 1, 5], [2, 2, 6]], Received: " + arrToString(swapRC(test)));
     test = new int[][] {{1, -2},{-1, 2},{3, 11}};
-    System.out.println(arrToString(swapRC(test)));
+    System.out.println("Expected: [[1, -1, 3], [-2, 2, 11]], Received: " + arrToString(swapRC(test)));
   }
 
   public static String arrToString(int[] nums){
