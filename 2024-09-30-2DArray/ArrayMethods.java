@@ -24,7 +24,11 @@ public class ArrayMethods{
 
     System.out.println("-----------testing replaceNegative()-----------");
 	  test = new int[][] {{0, 0, 3, 1}, {1, -10, 20, 4, -5}, {-4, -6, 9}};
-	  System.out.println("Expected [[0, 0, 3, 1], [1, 1, 20, 4, 0], [0, 0, 9]]: " + arrToString(replaceNegative(test)));
+	  System.out.println("Expected [[0, 0, 3, 1], [1, 1, 20, 4, 0], [0, 0, 9]], Received: " + arrToString(replaceNegative(test)));
+
+    System.out.println("-----------testing copy()-----------");
+	  test = new int[][] {{0, 0, 3, 1}, {1, -10, 20, 4, -5}, {-4, -6, 9}};
+	  System.out.println("Expected [[0, 0, 3, 1], [1, -10, 20, 4, -5], [-4, -6, 9]], Received: " + arrToString(copy(test)));
   }
 
   public static String arrToString(int[] nums){
@@ -88,4 +92,27 @@ public class ArrayMethods{
  	}
   return vals;
  }
+
+ //4. Make a copy of the given 2d array.
+//When testing : make sure that changing the original does NOT change the copy.
+//DO NOT use any built in methods that "copy" an array.
+//You SHOULD write a helper method for this.
+//If you don't see a good way to do that, you should stop and look at prior methods.
+public static int[][] copy(int[][] nums){
+  int[][] result = new int[nums.length][];
+  for (int i = 0; i < nums.length; i++)
+  {
+    result[i] = copy(nums[i]);
+  }
+  return result;
+}
+
+public static int[] copy(int[] nums){
+  int[] result = new int[nums.length];
+  for (int i = 0; i < nums.length; i++)
+  {
+    result[i] = nums[i];
+  }
+  return result;
+}
 }
