@@ -21,6 +21,10 @@ public class ArrayMethods{
     System.out.println("Expected: [[1, 1, 5], [2, 2, 6]], Received: " + arrToString(swapRC(test)));
     test = new int[][] {{1, -2},{-1, 2},{3, 11}};
     System.out.println("Expected: [[1, -1, 3], [-2, 2, 11]], Received: " + arrToString(swapRC(test)));
+
+    System.out.println("-----------testing replaceNegative()-----------");
+	  test = new int[][] {{0, 0, 3, 1}, {1, -10, 20, 4, -5}, {-4, -6, 9}};
+	  System.out.println("Expected [[0, 0, 3, 1], [1, 1, 20, 4, 0], [0, 0, 9]]: " + arrToString(replaceNegative(test)));
   }
 
   public static String arrToString(int[] nums){
@@ -70,4 +74,18 @@ public class ArrayMethods{
     }
     return column;
   }
+
+  public static int[][] replaceNegative(int[][] vals) {
+  for (int i = 0; i < vals.length; i ++)
+	{
+ 		for (int n = 0; n < vals[i].length; n++)
+ 		{
+ 			if (vals[i][n] < 0 && i == n)
+ 				vals[i][n] = 1;
+ 			if (vals[i][n] < 0)
+ 				vals[i][n] = 0;
+ 		}
+ 	}
+  return vals;
+ }
 }
