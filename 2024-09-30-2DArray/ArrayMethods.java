@@ -3,7 +3,8 @@ public class ArrayMethods{
 // Sandra Gao sandrag44@nycstudents.net
 
   public static void main(String[] args) {
-    // Tests both arrToString and arr2DSum
+    System.out.println();
+    System.out.println( "-----------testing arrtoString() and arr2DSum()-----------");
     int[][] test = {{0, 1, 8 ,9}, {0, 0, 9}, {}};
     System.out.println("Expected: [[0, 1, 8, 9], [0, 0, 9], []], Received: " + arrToString(test));
     System.out.println("Expected: 27, Received: " + arr2DSum(test));
@@ -16,7 +17,7 @@ public class ArrayMethods{
     System.out.println("Expected: [[-10, -2, -10], [22], [-17, 1]], Received: " + arrToString(test));
     System.out.println("Expected: -16, Received: " + arr2DSum(test));
 
-    // Tests swapRC
+    System.out.println("-----------testing swapRC()-----------");
     test = new int[][] {{1, 2},{1, 2},{5, 6}};
     System.out.println("Expected: [[1, 1, 5], [2, 2, 6]], Received: " + arrToString(swapRC(test)));
     test = new int[][] {{1, -2},{-1, 2},{3, 11}};
@@ -29,6 +30,7 @@ public class ArrayMethods{
     System.out.println("-----------testing copy()-----------");
 	  test = new int[][] {{0, 0, 3, 1}, {1, -10, 20, 4, -5}, {-4, -6, 9}};
 	  System.out.println("Expected [[0, 0, 3, 1], [1, -10, 20, 4, -5], [-4, -6, 9]], Received: " + arrToString(copy(test)));
+    System.out.println();
   }
 
   public static String arrToString(int[] nums){
@@ -93,11 +95,6 @@ public class ArrayMethods{
   return vals;
  }
 
- //4. Make a copy of the given 2d array.
-//When testing : make sure that changing the original does NOT change the copy.
-//DO NOT use any built in methods that "copy" an array.
-//You SHOULD write a helper method for this.
-//If you don't see a good way to do that, you should stop and look at prior methods.
 public static int[][] copy(int[][] nums){
   int[][] result = new int[nums.length][];
   for (int i = 0; i < nums.length; i++)
