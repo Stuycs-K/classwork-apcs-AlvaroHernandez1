@@ -29,8 +29,10 @@ public class ArrayMethods{
 
     System.out.println("-----------testing copy()-----------");
 	  test = new int[][] {{0, 0, 3, 1}, {1, -10, 20, 4, -5}, {-4, -6, 9}};
-	  System.out.println("Expected [[0, 0, 3, 1], [1, -10, 20, 4, -5], [-4, -6, 9]], Received: " + arrToString(copy(test)));
-    System.out.println();
+    int[][] testCopy = copy(test);
+	  System.out.println("Expected [[0, 0, 3, 1], [1, -10, 20, 4, -5], [-4, -6, 9]], Received: " + arrToString(testCopy));
+    test[0][0] = 100;
+    System.out.println("Changed Original: " + arrToString(test) + ", Copy: " + arrToString(testCopy));
   }
 
   public static String arrToString(int[] nums){
