@@ -13,7 +13,12 @@ public class ArrayDemo{
     System.out.println("Expected: " + Arrays.toString(test) + ", Received: " + arrToString(test));
     System.out.println();
     System.out.println("________________Tests countZeros2D()__________________");
-    test2D = new int[][] {{1}, {2, 3}, {4, -5, 6, 8}};
+    test2D = new int[][] {{0}, {2, 3}, {0, -5, 6, 0}};
+    System.out.println();
+    System.out.println("Expected: 3, Received: " + countZeros2D(test2D));
+    test2D = new int[][] {{1}, {2, 3}, {3, -5, 6, 7}};
+    System.out.println("Expected: 0, Received: " + countZeros2D(test2D));
+    System.out.println();
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
