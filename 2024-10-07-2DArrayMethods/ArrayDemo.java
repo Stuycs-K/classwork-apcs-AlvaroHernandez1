@@ -19,6 +19,13 @@ public class ArrayDemo{
     test2D = new int[][] {{1}, {2, 3}, {3, -5, 6, 7}};
     System.out.println("Expected: 0, Received: " + countZeros2D(test2D));
     System.out.println();
+        System.out.println("________________Tests arr2DSum()__________________");
+    test2D = new int[][] {{0}, {2, 3}, {0, -5, 6, 0}};
+    System.out.println();
+    System.out.println("Expected: 6, Received: " + arr2DSum(test2D));
+    test2D = new int[][] {{1}, {2, 3}, {3, -5, 6, 7}};
+    System.out.println("Expected: 17, Received: " + arr2DSum(test2D));
+    System.out.println();
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
@@ -48,23 +55,29 @@ public class ArrayDemo{
 
   //1. Calculate and return how many elements equal zero in the 2D array.
   public static int countZeros2D(int[][] nums){
-    int sum = 0;
+    int count = 0;
     for (int i = 0; i < nums.length; i++)
     {
       for (int n = 0; n < nums[i].length; n++)
       {
         if (nums[i][n] == 0)
-          sum++;
+          count++;
       }
     }
-    return sum;
+    return count;
   }
 
   //2. Calculate the sum of a 2d array
-  /*Return the sum of all of the values in the 2D array
-   *Use a nested loop instead of a helper method*/
   public static int arr2DSum(int[][]nums){
-    return 0;
+    int sum = 0;
+    for (int i = 0; i < nums.length; i++)
+    {
+      for (int n = 0; n < nums[i].length; n++)
+      {
+          sum += nums[i][n];
+      }
+    }
+    return sum;
   }
 
   //3. Modify a given 2D array of integer as follows:
