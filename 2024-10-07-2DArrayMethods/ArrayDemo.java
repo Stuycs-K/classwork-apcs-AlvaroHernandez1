@@ -19,13 +19,17 @@ public class ArrayDemo{
     test2D = new int[][] {{1}, {2, 3}, {3, -5, 6, 7}};
     System.out.println("Expected: 0, Received: " + countZeros2D(test2D));
     System.out.println();
-        System.out.println("________________Tests arr2DSum()__________________");
+    System.out.println("________________Tests arr2DSum()__________________");
     test2D = new int[][] {{0}, {2, 3}, {0, -5, 6, 0}};
     System.out.println();
     System.out.println("Expected: 6, Received: " + arr2DSum(test2D));
     test2D = new int[][] {{1}, {2, 3}, {3, -5, 6, 7}};
     System.out.println("Expected: 17, Received: " + arr2DSum(test2D));
     System.out.println();
+    System.out.println("-----------Tests replaceNegative()-----------");
+	  test2D = new int[][] {{0, 0, 3, 1}, {1, -10, 20, 4, -5}, {-4, -6, 9}};
+	  System.out.println("Expected [[0, 0, 3, 1], [1, 1, 20, 4, 0], [0, 0, 9]], Received: " + Arrays.deepToString(replaceNegative(test2D)));
+    
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
@@ -85,8 +89,18 @@ public class ArrayDemo{
   //-When the row number is the same as the column number replace
   //that negative with the value 1
   //-All other negatives replace with 0
-  public static void replaceNegative(int[][] vals){
-
+  public static int[][] replaceNegative(int[][] vals){
+    for (int i = 0; i < vals.length; i ++)
+    {
+      for (int n = 0; n < vals[i].length; n++)
+      {
+        if (vals[i][n] < 0 && i == n)
+          vals[i][n] = 1;
+        if (vals[i][n] < 0)
+          vals[i][n] = 0;
+      }
+    }
+    return vals;
   }
 
   //4. Make a copy of the given 2d array.
