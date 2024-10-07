@@ -27,8 +27,18 @@ public class ArrayDemo{
     System.out.println("Expected: 17, Received: " + arr2DSum(test2D));
     System.out.println();
     System.out.println("-----------Tests replaceNegative()-----------");
+    System.out.println();
 	  test2D = new int[][] {{0, 0, 3, 1}, {1, -10, 20, 4, -5}, {-4, -6, 9}};
 	  System.out.println("Expected [[0, 0, 3, 1], [1, 1, 20, 4, 0], [0, 0, 9]], Received: " + Arrays.deepToString(replaceNegative(test2D)));
+    System.out.println();
+    System.out.println("-----------Tests copy()-----------");
+    System.out.println();
+	  test2D = new int[][] {{0, 0, 3, 1}, {1, -10, 20, 4, -5}, {-4, -6, 9}};
+    int[][] test2DCopy = copy(test2D);
+	  System.out.println("Expected [[0, 0, 3, 1], [1, -10, 20, 4, -5], [-4, -6, 9]], Received: " + Arrays.deepToString(test2DCopy));
+    test2D[0][0] = 100;
+    System.out.println("Changed Original: " + Arrays.deepToString(test2D) + ", Copy: " + Arrays.deepToString(test2DCopy));
+    System.out.println();
     
   }
 
@@ -85,10 +95,6 @@ public class ArrayDemo{
   }
 
   //3. Modify a given 2D array of integer as follows:
-  //Replace all the negative values:
-  //-When the row number is the same as the column number replace
-  //that negative with the value 1
-  //-All other negatives replace with 0
   public static int[][] replaceNegative(int[][] vals){
     for (int i = 0; i < vals.length; i ++)
     {
@@ -104,13 +110,23 @@ public class ArrayDemo{
   }
 
   //4. Make a copy of the given 2d array.
-  //When testing : make sure that changing the original does NOT change the copy.
-  //DO NOT use any built in methods that "copy" an array.
-  //You SHOULD write a helper method for this.
-  //If you don't see a good way to do that, you should stop and look at prior methods.
-  public static int[][] copy(int[][] nums){
-    return new int[1][1];
+public static int[][] copy(int[][] nums){
+  int[][] result = new int[nums.length][];
+  for (int i = 0; i < nums.length; i++)
+  {
+    result[i] = copy(nums[i]);
   }
+  return result;
+}
+
+public static int[] copy(int[] nums){
+  int[] result = new int[nums.length];
+  for (int i = 0; i < nums.length; i++)
+  {
+    result[i] = nums[i];
+  }
+  return result;
+}
 
   //5. Rotate an array by returning a new array with the rows and columns swapped.
   //   You may assume the array is rectangular and neither rows nor cols is 0.
