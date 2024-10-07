@@ -39,7 +39,19 @@ public class ArrayDemo{
     test2D[0][0] = 100;
     System.out.println("Changed Original: " + Arrays.deepToString(test2D) + ", Copy: " + Arrays.deepToString(test2DCopy));
     System.out.println();
-    
+    System.out.println("-----------testing swapRC()-----------");
+    System.out.println();
+    test2D = new int[][] {{1, 2},{1, 2},{5, 6}};
+    System.out.println("Expected: [[1, 1, 5], [2, 2, 6]], Received: " + Arrays.deepToString(swapRC(test2D)));
+    test2D = new int[][] {{1, -2},{-1, 2},{3, 11}};
+    System.out.println("Expected: [[1, -1, 3], [-2, 2, 11]], Received: " + Arrays.deepToString(swapRC(test2D)));
+    System.out.println();
+    System.out.println("-----------testing htmlTable()-----------");
+    System.out.println();
+    test2D = new int[][]{{1,2},{3}};
+    System.out.println("Expected: <table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>, Received: " + htmlTable(test2D));
+    System.out.println();
+
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
@@ -129,10 +141,16 @@ public static int[] copy(int[] nums){
 }
 
   //5. Rotate an array by returning a new array with the rows and columns swapped.
-  //   You may assume the array is rectangular and neither rows nor cols is 0.
-  //   e.g. swapRC({{1,2,3},{4,5,6}}) returns {{1,4},{2,5},{3,6}}
-  public static int[][] swapRC(int[][]nums){
-    return new int[1][1];
+  public static int[][] swapRC (int [][] nums) {
+    int[][] column = new int[nums[0].length][nums.length];
+    for (int n = 0; n < nums[n].length; n++)
+    {
+      for (int i = 0; i < nums.length; i++)
+      {
+        column[n][i] = nums[i][n]; 
+      }
+    }
+    return column;
   }
 
   //6. Make an HTML table by putting a table tag around the entire 2d array,
@@ -142,6 +160,16 @@ public static int[] copy(int[] nums){
   //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
   // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
   public static String htmlTable(int[][]nums){
-    return "";
+    String result = "<table>";
+    for (int i = 0; i < nums.length; i++)
+    {
+      result += "<tr>";
+      for (int n = 0; n < nums[i].length; n++)
+      {
+        result += "<td>" + nums[i][n] + "</td>";
+      }
+      result += "</tr>";
+    }
+    return result + "</table>";
   }
 }
