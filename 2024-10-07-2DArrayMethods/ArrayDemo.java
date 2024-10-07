@@ -5,26 +5,40 @@ public class ArrayDemo{
     //You can now use Arrays.toString(yourArray) instead of writing arrayToString again.
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
+    System.out.println("________________Compare Arrays.toString() and arrToString()__________________");
+    System.out.println();
+    int[] test = new int[] {1, 2, -3, 5, 6, 7};
+    System.out.println("Expected: " + Arrays.toString(test) + ", Received: " + arrToString(test));
+    System.out.println();
 
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
   public static String arrToString(int[]ary){
-    if (nums.length == 0)
+    if (ary.length == 0)
       return "[]";
     String result = "[";
-    for (int i = 0; i < nums.length - 1; i++)
+    for (int i = 0; i < ary.length - 1; i++)
     {
-      result += nums[i] + ", ";
+      result += ary[i] + ", ";
     }
-    return result + nums[nums.length - 1] + "]";
+    return result + ary[ary.length - 1] + "]";
   }
 
   //The name of different methods can be the same,
   //as long as the parameters are different! (type and/or quantity must be different)
   //Pro tip: you should be using your 1D arrToString in this method!
   public static String arrToString(int[][]ary){
-    return "";
+    String result = "[";
+    for (int i = 0; i < ary.length; i++)
+    {
+      result += arrToString(ary[i]);
+
+      if (i < ary.length - 1) {
+        result += ", ";
+      }
+    }
+    return result + "]";
   }
 
   //1. Calculate and return how many elements equal zero in the 2D array.
