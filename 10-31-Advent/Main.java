@@ -12,5 +12,19 @@ class Main {
       while(input.hasNext()){
         System.out.println(input.next());
       }
+      System.out.println();
+
+      Scanner sc1 = new Scanner("This is a bunch of words");
+      while(sc1.hasNext()){
+        System.out.println(sc1.next());
+      }
+      System.out.println();
+
+      Scanner sc2 = new Scanner("10.0 1.04 99.0 -3.0 4.2");
+      int sum = 0;
+      while(sc2.hasNext()){
+        sum += sc2.nextDouble();
+      }
+      System.out.println(sum);
     }
   }
