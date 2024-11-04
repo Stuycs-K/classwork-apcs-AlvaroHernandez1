@@ -15,12 +15,10 @@ public class TriangleTester {
       Scanner input = new Scanner(file);
       //CODE THAT SCANS THE FILE.
       int count = 0;
-      while (file.hasNextLine()){
-        String line = file.nextLine;
-
-        int s1 = line.nextInt();
-        int s2 = line.nextInt();
-        int s3 = line.nextInt();
+      while (input.hasNextInt()){
+        int s1 = input.nextInt();
+        int s2 = input.nextInt();
+        int s3 = input.nextInt();
 
         if (isTriangle(s1, s2, s3))
           count ++;
