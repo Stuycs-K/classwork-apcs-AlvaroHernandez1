@@ -14,10 +14,13 @@ public class ReadFile {
 
       while(input.hasNextLine()){
         String line = input.nextLine();
+        boolean found = false;
+
         if (line.indexOf("{") != -1)
-          System.out.println(input.nextLine());
-        else
-          input.nextline();
+          found = true;
+
+        if (found)
+          System.out.println(line);
       }
 
       input.close();//releases the file from your program
