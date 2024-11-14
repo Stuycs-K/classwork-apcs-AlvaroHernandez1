@@ -30,5 +30,24 @@ public class ArrayListPractice{
     returnArray.add(original.get(i - 1));
   }
   return returnArray;
-}
+  }
+
+  public static ArrayList<String> mixLists( ArrayList<String> a,  ArrayList<String> b){
+  //return a new ArrayList that has all values of a and b in alternating order that is:
+  //a[0], b[0], a[1], b[1]...
+  //If one list is longer than the other, just attach the remaining values to the end.
+  ArrayList<String> returnArray = new ArrayList<String> (a.size() + b.size());
+  if (a > b){
+    for (int i = 0; i < b.size(); i++){
+      returnArray.add(a.get(i));
+      returnArray.add(b.get(i));
+      a.remove(i);
+    }
+    for (int i = 0; i < a.size(); i++){
+      returnArray.add(a.get(i));
+    }
+
+    return returnArray;
+  }
+  }
 }
