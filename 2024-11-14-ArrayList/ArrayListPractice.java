@@ -37,11 +37,11 @@ public class ArrayListPractice{
   //a[0], b[0], a[1], b[1]...
   //If one list is longer than the other, just attach the remaining values to the end.
   ArrayList<String> returnArray = new ArrayList<String> (a.size() + b.size());
-  if (a > b){
+  if (a.size() >= b.size()){
     for (int i = 0; i < b.size(); i++){
-      returnArray.add(a.get(i));
+      returnArray.add(a.get(0));
       returnArray.add(b.get(i));
-      a.remove(i);
+      a.remove(0);
     }
     for (int i = 0; i < a.size(); i++){
       returnArray.add(a.get(i));
@@ -49,5 +49,19 @@ public class ArrayListPractice{
 
     return returnArray;
   }
+  else{
+    for (int i = 0; i < a.size(); i++){
+      returnArray.add(a.get(i));
+      returnArray.add(b.get(0));
+      b.remove(1);
+    }
+    for (int i = 0; i < b.size(); i++){
+      returnArray.add(b.get(i));
+    }
+
+    return returnArray;
+  }
+
+
   }
 }
