@@ -24,43 +24,52 @@ public class ArrayListPractice{
   }
 
   public static ArrayList<String> makeReversedList(ArrayList<String> original){
-  //return a new ArrayList that is in the reversed order of the original.
-  ArrayList<String> returnArray = new ArrayList<String> (original.size());
-  for (int i = original.size(); i > 0; i--) {
-    returnArray.add(original.get(i - 1));
-  }
-  return returnArray;
-  }
-
-  public static ArrayList<String> mixLists( ArrayList<String> a,  ArrayList<String> b){
-  //return a new ArrayList that has all values of a and b in alternating order that is:
-  //a[0], b[0], a[1], b[1]...
-  //If one list is longer than the other, just attach the remaining values to the end.
-  ArrayList<String> returnArray = new ArrayList<String> (a.size() + b.size());
-  if (a.size() >= b.size()){
-    for (int i = 0; i < b.size(); i++){
-      returnArray.add(a.get(0));
-      returnArray.add(b.get(i));
-      a.remove(0);
+    //return a new ArrayList that is in the reversed order of the original.
+    ArrayList<String> returnArray = new ArrayList<String> (original.size());
+    for (int i = original.size(); i > 0; i--) {
+      returnArray.add(original.get(i - 1));
     }
-    for (int i = 0; i < a.size(); i++){
-      returnArray.add(a.get(i));
-    }
-
     return returnArray;
   }
-  else{
-    for (int i = 0; i < a.size(); i++){
-      returnArray.add(a.get(i));
-      returnArray.add(b.get(0));
-      b.remove(1);
+
+  public static ArrayList<String> mixLists(ArrayList<String> tempA,  ArrayList<String> tempB){
+    ArrayList<String> a = new ArrayList<String> (tempA.size());
+    ArrayList<String> b = new ArrayList<String> (tempB.size());
+    for (int i = 0; i < tempA.size(); i++){
+      a.add(tempA.get(i));
     }
-    for (int i = 0; i < b.size(); i++){
-      returnArray.add(b.get(i));
+    for (int i = 0; i < tempB.size(); i++){
+      b.add(tempB.get(i));
     }
 
-    return returnArray;
-  }
+    //return a new ArrayList that has all values of a and b in alternating order that is:
+    //a[0], b[0], a[1], b[1]...
+    //If one list is longer than the other, just attach the remaining values to the end.
+    ArrayList<String> returnArray = new ArrayList<String> (a.size() + b.size());
+    if (a.size() >= b.size()){
+      for (int i = 0; i < b.size(); i++){
+        returnArray.add(a.get(0));
+        returnArray.add(b.get(i));
+        a.remove(0);
+      }
+      for (int i = 0; i < a.size(); i++){
+        returnArray.add(a.get(i));
+      }
+
+      return returnArray;
+    }
+    else{
+      for (int i = 0; i < a.size(); i++){
+        returnArray.add(a.get(i));
+        returnArray.add(b.get(0));
+        b.remove(0);
+      }
+      for (int i = 0; i < b.size(); i++){
+        returnArray.add(b.get(i));
+      }
+
+      return returnArray;
+    }
 
 
   }
