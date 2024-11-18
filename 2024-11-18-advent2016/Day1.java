@@ -20,8 +20,25 @@ public class Day1 {
       int direction = 0; // 0 = north, 1 = east, 2 = south, 3 = west
       int distanceTo = 0;
       String[] directions = total.split(", ");
-      System.out.println(directions.length());
-      for (int i = 0);
+      System.out.println(directions.length);
+      for (int i = 0; i < directions.length; i++){
+        if (directions[i].substring(0,1).equals("R")){
+          if (direction < 3)
+            direction++;
+          else
+            direction = 0;
+        }
+        else{
+          if (direction > 0)
+            direction--;
+          else
+            direction = 3;
+        }
+        if (direction == 1 || direction = 3){
+          
+        }
+
+      }
 
 
       input.close();//releases the file from your program
