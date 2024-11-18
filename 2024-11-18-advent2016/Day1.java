@@ -8,7 +8,7 @@ public class Day1 {
     System.out.println(blocksTo("input.txt"));
   }
 
-  public static int blocksTo(String filename){
+∫  public static int blocksTo(String filename){
     //2 Opening a file requires a try/catch
     try {
       File file = new File(filename);//1
@@ -34,10 +34,17 @@ public class Day1 {
           else
             direction = 3;
         }
-        if (direction == 1 || direction = 3){
-          
-        }
-
+        System.out.println(Integer.parseInt("123"));
+        /*
+        if (direction == 1)
+          x += parseInt(directions[i].substring(1));
+        if (direction == 2)
+          y -= parseInt(directions[i].substring(1));
+        if (direction == 3)
+          x -= parseInt(directions[i].substring(1));
+        if (direction == 0)
+          y += parseInt(directions[i].substring(1));
+        */
       }
 
 
