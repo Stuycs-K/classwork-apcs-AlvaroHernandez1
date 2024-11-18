@@ -5,8 +5,7 @@ import java.util.Scanner;
 
 public class Day1 {
   public static void main(String[] args) {
-    System.out.println(countTrianglesA("inputTriA.txt"));
-    System.out.println(countTrianglesB("inputTri.txt"));
+    System.out.println(blocksTo("input.txt"));
   }
 
   public static int blocksTo(String filename){
@@ -15,19 +14,18 @@ public class Day1 {
       File file = new File(filename);//1
       Scanner input = new Scanner(file);
       //CODE THAT SCANS THE FILE.
-      int count = 0;
-      while (input.hasNextInt()){
-        int s1 = input.nextInt();
-        int s2 = input.nextInt();
-        int s3 = input.nextInt();
+      String total = input.nextLine();
+      int x = 0;
+      int y = 0;
+      int direction = 0; // 0 = north, 1 = east, 2 = south, 3 = west
+      int distanceTo = 0;
+      String[] directions = total.split(", ");
+      System.out.println(directions.length());
+      for (int i = 0);
 
-        if (isTriangle(s1, s2, s3))
-          count ++;
-
-      }
 
       input.close();//releases the file from your program
-      return count;
+      return distanceTo;
 
     } catch (FileNotFoundException ex) {
       //File not found what should you do?
