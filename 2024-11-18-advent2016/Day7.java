@@ -13,7 +13,8 @@ public class Day7 {
       File file = new File(filename);//1
       Scanner input = new Scanner(file);
       //CODE THAT SCANS THE FILE.
-      int total = 0;
+      int totalA = 0;
+      int totalB = 0;
       while (input.hasNext()){
         String line = input.next();
         int count = count(line);
@@ -34,14 +35,18 @@ public class Day7 {
         //System.out.println(outside);
 
         if (!(findsTLS(inside)) && (findsTLS(outside))){
-            total++;
+            totalA++;
         }
 
+        if (findsSSL(outside, inside)){
+            totalB++;
+        }
         
       }
       input.close();//releases the file from your program
 
-      return total;
+      System.out.print("Solution for Part A: " + totalA + "\nSolution for Part B: ");
+      return totalB;
 
     } catch (FileNotFoundException ex) {
       //File not found what should you do?
@@ -74,6 +79,20 @@ public class Day7 {
         for (int i = 3; i < line.length(); i++){
             if ((line.charAt(i-3) == line.charAt(i)) && (line.charAt(i-2) == line.charAt(i-1)) && (line.charAt(i) != line.charAt(i-1)))
                 return true;
+        }
+        return false;
+    }
+
+    public static boolean findsSSL(String line, String inside){
+        String key = "";
+        for (int i = 2; i < line.length(); i++){
+            if ((line.charAt(i-2) == line.charAt(i)) && (line.charAt(i) != line.charAt(i - 1))){
+                key += "" + line.charAt(i-1) + line.charAt(i) + line.charAt(i-1);
+                if (inside.indexOf(key) != -1)
+                    return true;
+                else
+                    key = "";
+            }
         }
         return false;
     }
