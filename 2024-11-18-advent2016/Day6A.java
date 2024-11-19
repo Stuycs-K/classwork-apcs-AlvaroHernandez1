@@ -69,9 +69,9 @@ public class Day6A {
   }
 
   public static int maxChar(int[] chars){
-    int current = 0;
+    int current = 10000;
     for (int i = 0; i < chars.length; i++){
-      if (chars[i] > current)
+      if (chars[i] < current)
         current = chars[i];
     }
     return current;
