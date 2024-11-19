@@ -15,7 +15,7 @@ public class Day4B {
       //CODE THAT SCANS THE FILE.
       while (input.hasNextLine()){
         String origLine = input.nextLine();
-        String line = origLine.substring(0,origLine.length() - 12);
+        String line = origLine.substring(0,origLine.length() - 11);
         int sector = Integer.parseInt(origLine.substring(origLine.length() - 10, origLine.length() - 7));
         int shift = sector % 26;
         String result = "";
@@ -29,7 +29,7 @@ public class Day4B {
           }
 
         }
-        System.out.println(result);
+        System.out.println(result + " " + sector);
       }
       input.close();//releases the file from your program
 
