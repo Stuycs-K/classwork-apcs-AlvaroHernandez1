@@ -21,8 +21,13 @@ public class Day4B {
         String result = "";
 
         for (int i = 0; i < line.length(); i ++){
-          if (line.charAt(i) > 96)
-            result += (char) (((line.charAt(i) + shift) % 122) + 97);
+          if (line.charAt(i) > 96){
+            if ((line.charAt(i) + shift) > 122)
+              result += (char) (line.charAt(i) + shift - 26);
+            else
+              result += (char) (line.charAt(i) + shift);
+          }
+
         }
         System.out.println(result);
       }
