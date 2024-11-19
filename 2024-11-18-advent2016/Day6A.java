@@ -26,19 +26,29 @@ public class Day6A {
         String line = input.next();
 
         column0 += line.charAt(0);
-        char c1 = line.charAt(1);
-        char c2 = line.charAt(2);
-        char c3 = line.charAt(3);
-        char c4 = line.charAt(4);
-        char c5 = line.charAt(5);
-        char c6 = line.charAt(6);
-        char c7 = line.charAt(7);
-
+        column1 += line.charAt(1);
+        column2 += line.charAt(2);
+        column3 += line.charAt(3);
+        column4 += line.charAt(4);
+        column5 += line.charAt(5);
+        column6 += line.charAt(6);
+        column7 += line.charAt(7);
 
 
       }
       input.close();//releases the file from your program
-      System.out.println(column0);
+      String end = "";
+
+      end += findChar(column0);
+      end += findChar(column1);
+      end += findChar(column2);
+      end += findChar(column3);
+      end += findChar(column4);
+      end += findChar(column5);
+      end += findChar(column6);
+      end += findChar(column7);
+
+      System.out.println(end);
       return 0;
 
     } catch (FileNotFoundException ex) {
@@ -47,4 +57,33 @@ public class Day6A {
       return 0; //you can return from a void function just don't put a value.
     }
   }
+
+  public static char findChar(String total){
+    int[] chars = new int[26];
+    for (int i = 0; i < total.length(); i++){
+      chars[(total.charAt(i) - 97)]++;
+    }
+    int max = maxChar(chars);
+    int index = indexOf(max, chars);  
+    return (char) (index + 97);
+  }
+
+  public static int maxChar(int[] chars){
+    int current = 0;
+    for (int i = 0; i < chars.length; i++){
+      if (chars[i] > current)
+        current = chars[i];
+    }
+    return current;
+  }
+
+
+    public static int indexOf(int num, int[] nums){
+        for (int i = 0; i < nums.length; i++){
+        if (nums[i] == num){
+            return i;
+        }
+        }
+        return -1;
+    }
 }
