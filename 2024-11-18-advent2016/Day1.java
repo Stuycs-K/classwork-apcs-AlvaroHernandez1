@@ -48,7 +48,9 @@ public class Day1 {
         points[i] = "(" + x + ", " + y + ")";
         for (int index = 0; index < i - 1; index++){
           if (points[index].equals(points[i])){
-            System.out.println(i);
+            for (int index1 = 0; index1 < i; index1++){
+              System.out.println(points[index1]);
+            }
             return points[i];
           }
         }
