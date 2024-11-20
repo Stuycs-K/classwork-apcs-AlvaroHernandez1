@@ -20,7 +20,8 @@ public class Day9A {
         String line = input.nextLine();
         resultA = outputA(line);
         System.out.println(resultA.length());
-        resultB = outputB(line);
+        resultB = outputB(convert(line));
+
         while (resultA.indexOf("(") > -1){
           resultB = outputB(resultA);
         }
@@ -62,7 +63,13 @@ public class Day9A {
     return result;
   }
 
-public static int outputB(String line){
+  public static int[] convert(String line){
+    for (int i = 0; i < line.length(); i++){
+      
+    }
+  }
+
+public static int[] outputB(int[] line){
         int i = 0;
         int count = 0;
         while (i < line.length()){
