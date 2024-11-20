@@ -64,7 +64,41 @@ public class Day9A {
   }
 
   public static int[] convert(String line){
-    for (int i = 0; i < line.length(); i++){
+    int[] nums = new int[line.length()];
+    int i = 0;
+    while (i < line.length()){
+      if (line.charAt(i) == '(')
+        nums[i] = -1;
+      else if (line.charAt(i) == 'x')
+        nums[i] = -3;
+      else if (line.charAt(i) == ')')
+        nums[i] = -2;
+      else if (line.charAt(i-1) == '(' && line.charAt(i+2) == 'x'){
+        nums[i] = Integer.parseInt(line.substring(i, i + 2));
+        i += 1;
+      }
+      else if (line.charAt(i-1) == '(' && line.charAt(i+3) == 'x'){
+        nums[i] = Integer.parseInt(line.substring(i, i + 3));
+        i += 2;
+      }
+      else if (line.charAt(i-1) == '(')
+        nums[i] = Integer.parseInt(line.substring(i, i + 1));
+
+      else if (line.charAt(i+1) == ')' && line.charAt(i-1) == 'x')
+        nums[i] = Integer.parseInt(line.substring(i, i + 1));
+      else if (line.charAt(i+2) == ')' && line.charAt(i-1) == 'x'){
+        nums[i] = Integer.parseInt(line.substring(i, i + 2));
+        i += 1;
+      }
+      else if (line.charAt(i+3) == ')' && line.charAt(i-1) == 'x'){
+        nums[i] = Integer.parseInt(line.substring(i, i + 3));
+        i += 2;
+      }
+      else{
+        nums[i] = 1;
+      }
+
+      i++;
       
     }
   }
