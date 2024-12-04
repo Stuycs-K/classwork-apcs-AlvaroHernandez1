@@ -6,8 +6,8 @@ public class ColorDemo{
       }catch(Exception e){
       }
     int g = 50;
-    int b = 000;
-    for (int i = 1000; i > 0; i--){
+    int b = 0;
+    for (int i = 500; i > 0; i--){
       for(int r = 0; r < 252; r+=16){
         System.out.print("\u001b[48;2;"+r+";"+g+";"+b+";7m");
         System.out.print("\u001b[38;2;"+r+";"+g+";"+b+";7m ");
@@ -18,7 +18,7 @@ public class ColorDemo{
       }
       sleep(5);
     }
-    System.out.println("\u001b[0m");
+    System.out.print("\u001b[0m Done");
   }
 
   public static void sleep(int milli){
