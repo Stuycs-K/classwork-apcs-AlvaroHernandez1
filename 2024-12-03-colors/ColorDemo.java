@@ -1,4 +1,4 @@
-public class test{
+public class ColorDemo{
   public static void main(String[] args){
       System.out.println("Make window pretty big!");
       try{
