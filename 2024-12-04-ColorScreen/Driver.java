@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Driver{
   public static void main(String[] args){
     System.out.print(Text.CLEAR_SCREEN);
@@ -19,6 +21,26 @@ public class Driver{
       Text.go(row, 80);
       System.out.print(" ");
     }
+    //rand arr
+    int[] rand = new int[] {
+      (int) (Math.random() * 100),
+      (int) (Math.random() * 100),
+      (int) (Math.random() * 100)
+    };
+    
+    int col2 = 20;
+    for (int i = 0; i < 3; i++){
+      System.out.print("\u001b[0m");
+      Text.go(2, col2);
+      if (rand[i] < 25)
+        Text.color(Text.RED, Text.BRIGHT);
+      if (rand[i] > 75)
+        Text.color(Text.GREEN, Text.BRIGHT);
+      System.out.print(rand[i]);
+      col2 += 20;
+    }
+
+    // line
     Text.color(Text.YELLOW);
     for (int col = 2; col < 80; col++){
       Text.go(3, col);
@@ -67,6 +89,8 @@ public class Driver{
 
     Text.go(30, 80);
     System.out.println(Text.RESET);
+
+    System.out.print(Arrays.toString(rand));
   }
   
 }
