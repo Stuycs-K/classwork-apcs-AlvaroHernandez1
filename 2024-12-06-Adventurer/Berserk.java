@@ -1,5 +1,5 @@
 import java.util.Random;
-public class Adventurer{
+public class Berserk extends Adventurer{
   private String name;
   private int HP,maxHP;
   private int rage;
@@ -7,11 +7,11 @@ public class Adventurer{
 
   /*There is no no-arg constructor. Be careful with your subclass constructors.*/
 
-  public Adventurer(String name){
-      super(name);
+  public Berserk(String name){
+    super(name);
   }
 
-  public Adventurer(String name, int hp){
+  public Berserk(String name, int hp){
     super(name, hp);
   }
 
@@ -52,9 +52,9 @@ public class Adventurer{
   */
   //hurt or hinder the target adventurer
   public String attack(Adventurer other){
-    int damage = 10 + (int)(Math.random * 10);
+    int damage = 10 + (int)(Math.random() * 10);
     other.applyDamage(damage);
-    return ("Berserk dealt " + damage = " damge!");
+    return ("Berserk dealt " + damage + " damge!");
   }
 
   //heall or buff the target adventurer
@@ -63,12 +63,18 @@ public class Adventurer{
   }
 
   //heall or buff self
-  public abstract String support(){
-
+  public String support(){
+    this.HP += 20;
+    return "Berserk healed themselves for 20 health!";
   }
 
   //hurt or hinder the target adventurer, consume some special resource
-  public abstract String specialAttack(Adventurer other);
+  public String specialAttack(Adventurer other){
+    int damage = 30 + (int) (Math.random() * 40);
+    other.applyDamage(damage);
+    rage = this.restoreSpecial(rage);
+    return "Berserk used special to deal " + damage + "Healht!";
+  }
 
   /*
     standard methods
