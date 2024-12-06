@@ -8,7 +8,7 @@ public class Berserk extends Adventurer{
   /*There is no no-arg constructor. Be careful with your subclass constructors.*/
 
   public Berserk(String name){
-    super(name);
+    super(name, 90);
   }
 
   public Berserk(String name, int hp){
