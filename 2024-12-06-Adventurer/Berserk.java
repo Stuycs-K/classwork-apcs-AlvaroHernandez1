@@ -73,7 +73,7 @@ public class Adventurer{
   /*
     standard methods
   */
-  public void applyDamage(int amount){
+  public void applyDamage(int amount){ 
     this.HP -= amount;
   }
 
