@@ -9,10 +9,16 @@ public class Berserk extends Adventurer{
 
   public Berserk(String name){
     super(name, 90);
+    this.name = name;
+    this.HP = 90;
+    this.maxHP = HP;
   }
 
   public Berserk(String name, int hp){
     super(name, hp);
+    this.name = name;
+    this.HP = hp;
+    this.maxHP = hp;
   }
 
   //concrete method written using abstract methods.
