@@ -4,10 +4,6 @@ public class Driver{
   public static void main(String[] args){
     System.out.print(Text.CLEAR_SCREEN);
     System.out.print(Text.HIDE_CURSOR);
-<<<<<<< HEAD
-    System.out.print(Text.color("BLUE"));
-    System.out.println("Yellow");
-=======
     Text.color(Text.YELLOW, Text.background(Text.YELLOW));
     for (int col = 1; col <= 80; col++){
       Text.go(1, col);
@@ -92,7 +88,6 @@ public class Driver{
 
 
     Text.go(30, 80);
->>>>>>> 7151ad3d643691a84b5bce9e433d502a3ad3b75b
     System.out.println(Text.RESET);
 
     System.out.print(Arrays.toString(rand));
