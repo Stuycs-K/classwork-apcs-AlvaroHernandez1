@@ -1,34 +1,20 @@
 import java.util.Random;
 public class Berserk extends Adventurer{
-  private String name;
-  private int HP,maxHP;
-  private int rage;
+  private int rage, maxRage;
 
 
   /*There is no no-arg constructor. Be careful with your subclass constructors.*/
 
   public Berserk(String name){
     super(name, 90);
-    this.name = name;
-    this.HP = 90;
-    this.maxHP = HP;
+    this.rage = 100;
+    this.maxRage = 200;
   }
 
   public Berserk(String name, int hp){
     super(name, hp);
-    this.name = name;
-    this.HP = hp;
-    this.maxHP = hp;
-  }
-
-  //concrete method written using abstract methods.
-  //refill special resource by amount, but only up to at most getSpecialMax()
-  public int restoreSpecial(int n){
-      if( n > getSpecialMax() - getSpecial()){
-              n = getSpecialMax() - getSpecial();
-      }
-      setSpecial(getSpecial()+n);
-      return n;
+    this.rage = 100;
+    this.maxRage = 200;
   }
 
   //Abstract methods are meant to be implemented in child classes.
@@ -59,65 +45,62 @@ public class Berserk extends Adventurer{
   //hurt or hinder the target adventurer
   public String attack(Adventurer other){
     int damage = 10 + (int)(Math.random() * 10);
-    other.applyDamage(damage);
-    return ("Berserk dealt " + damage + " damge!");
+    if (other.getHP() - damage > 0){
+      other.applyDamage(damage);
+      return (getName() + " dealt " + damage + " damge!");
+    }
+    int temp = other.getHP();
+    other.setHP(0);
+      return (getName() + " dealt " + temp + " damge and killed " + other.getName());
   }
 
   //heall or buff the target adventurer
   public String support(Adventurer other){
-    return "Berserk has no healing abilities /:";
+    int heal = ((int) (Math.random()*10)) + 10;
+    if (other.getHP() != 0){
+      if (other.getHP() + heal > other.getmaxHP()){
+        int temp = other.getmaxHP() - other.getHP();
+        other.setHP(other.getmaxHP());
+        return getName() + " healed " + other.getName() + " for " + temp;
+      }
+      else{
+        other.setHP(other.getHP() + heal);
+        return getName() + " healed " + other.getName() + " for " + heal;
+      }
+    }
+    return other.getName() + " is dead and could not be healed";
   }
 
   //heall or buff self
   public String support(){
-    this.HP += 20;
-    return "Berserk healed themselves for 20 health!";
+    if (getHP() > 0){
+      setHP(getHP() + 20);
+      return getName() + " healed themselves for 20 health!";
+    }
+    return getName() + " could not be healed since they are dead!";
   }
 
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other){
+    if (rage > 60){
     int damage = 30 + (int) (Math.random() * 40);
-    other.applyDamage(damage);
-    rage = this.restoreSpecial(rage);
-    return "Berserk used special to deal " + damage + "Healht!";
+    rage -= 60;
+    if (other.getHP() - damage > 0){
+      other.applyDamage(damage);
+      return (getName() + " used special to deal " + damage + " damge!");
+    }
+    int temp = other.getHP();
+    other.setHP(0);
+    return (getName() + " used special to deal " + temp + " damge and killed " + other.getName());
+    }
+    else
+      return getName() + " didn't have enough Rage!";
   }
 
   /*
     standard methods
   */
   public void applyDamage(int amount){
-    this.HP -= amount;
-  }
-
-
-
-  //toString method
-  public String toString(){
-    return this.getName();
-  }
-
-  //Get Methods
-  public String getName(){
-    return name;
-  }
-
-  public int getHP(){
-      return HP;
-  }
-
-  public int getmaxHP(){
-      return maxHP;
-  }
-  public void setmaxHP(int newMax){
-        maxHP = newMax;
-  }
-
-  //Set Methods
-  public void setHP(int health){
-      this.HP = health;
-  }
-
-  public void setName(String s){
-      this.name = s;
+    setHP(getHP() - amount);
   }
 }
