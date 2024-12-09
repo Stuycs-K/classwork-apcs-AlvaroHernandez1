@@ -1,6 +1,7 @@
 public class Driver{
   public static void main(String[] args){
-    Adventurer p1 = new Berserk("Alvaro");
+    Adventurer p1 = new Berserk("Jeff");
+    Adventurer p2 = new Berserk("Mini-Boss");
     //Test Health
     System.out.println(p1.getName() + "'s Health is " + p1.getHP());
     System.out.println(p2.getName() + "'s Health is " + p2.getHP() + "\n");
