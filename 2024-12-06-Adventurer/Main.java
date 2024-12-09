@@ -7,10 +7,10 @@ class Main {
 
 
     Adventurer p1 = new Berserk("Jeff");
-    System.out.println(p1.getName() + ", " + p1.getHP() + "/" + p1.getmaxHP() + ", " + p1.getSpecial() + "/" + p1.getSpecialMax() + " " + p1.getSpecialName());
+    System.out.println(p1 + ", " + p1.getHP() + "/" + p1.getmaxHP() + ", " + p1.getSpecial() + "/" + p1.getSpecialMax() + " " + p1.getSpecialName());
 
     Adventurer p2 = new CodeWarrior();
-    System.out.println(p2.getName() + ", " + p2.getHP() + "/" + p2.getmaxHP() + ", " + p2.getSpecial() + "/" + p2.getSpecialMax() + " " + p2.getSpecialName());
+    System.out.println(p2 + ", " + p2.getHP() + "/" + p2.getmaxHP() + ", " + p2.getSpecial() + "/" + p2.getSpecialMax() + " " + p2.getSpecialName());
 
     //Asks fpr p1 action
     boolean quit = false;
@@ -28,10 +28,12 @@ class Main {
         p1.support(p2);
       }
       if (action.equals("quit")){
-        throw new IllegalArgumentException(
-          "Player Quit Game...");
+        quit = true;
       }
     }
+
+    if (quit == true)
+      System.out.println("You surrendered and " + p2 + " won");
 
 
 
