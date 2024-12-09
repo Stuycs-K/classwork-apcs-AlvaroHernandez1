@@ -106,11 +106,4 @@ public class Berserk extends Adventurer{
     else
       return getName() + " didn't have enough Rage!";
   }
-
-  /*
-    standard methods
-  */
-  public void applyDamage(int amount){
-    setHP(getHP() - amount);
-  }
 }
