@@ -44,6 +44,9 @@ public class Berserk extends Adventurer{
   */
   //hurt or hinder the target adventurer
   public String attack(Adventurer other){
+    if (other.getHP() <= 0){
+      return getName() + " tried attacking " + other.getName() + " but they are already dead and can't be attacked";
+    }
     int damage = 10 + (int)(Math.random() * 10);
     if (other.getHP() - damage > 0){
       other.applyDamage(damage);
@@ -51,7 +54,7 @@ public class Berserk extends Adventurer{
     }
     int temp = other.getHP();
     other.setHP(0);
-      return (getName() + " dealt " + temp + " damge and killed " + other.getName());
+      return (getName() + " dealt " + temp + " damge and killed " + other.getName() + "!!!");
   }
 
   //heall or buff the target adventurer
@@ -73,15 +76,22 @@ public class Berserk extends Adventurer{
 
   //heall or buff self
   public String support(){
-    if (getHP() > 0){
-      setHP(getHP() + 20);
-      return getName() + " healed themselves for 20 health!";
+    if (getHP() <= 0){
+      return getName() + " could not be healed since they are dead!";
     }
-    return getName() + " could not be healed since they are dead!";
+    if (getHP() + 20 > getmaxHP()){
+      int temp = getmaxHP() - getHP();
+      return getName() + " healed themselves to max with " + temp + " health!";
+    }
+    setHP(getHP() + 20);
+    return getName() + " healed themselves with 20 health!";
   }
 
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other){
+    if (other.getHP() <= 0){
+      return getName() + " tried using special on " + other.getName() + " but they are already dead and can't be attacked";
+    }
     if (rage > 60){
     int damage = 30 + (int) (Math.random() * 40);
     rage -= 60;
