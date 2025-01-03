@@ -1,6 +1,6 @@
 public class MakeWords{
   public static void main(String[] args){
-    mw(3,"","abc");
+    mw(5,"","abcd");
   }
 
   public static void mw(int remaining, String result, String alphab){
